@@ -97,9 +97,3 @@ map <Leader>S :call OpenShell()<CR>
 
 let g:tmux_pane = 1
 map <Leader>I :call SendSelectionToTmuxPane()<CR>
-
-command Ofe :CommandT ~/work/esl.frontend
-map <Leader>f :Ofe<CR>
-
-command Obe :CommandT ~/work/esl.backend
-map <Leader>b :Obe<CR>
