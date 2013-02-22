@@ -97,3 +97,5 @@ map <Leader>S :call OpenShell()<CR>
 
 let g:tmux_pane = 1
 map <Leader>I :call SendSelectionToTmuxPane()<CR>
+
+map <Leader>\| :vs<CR>
