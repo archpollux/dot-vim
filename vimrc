@@ -83,7 +83,7 @@ map ` :call SwitchToTabN()<CR>
 
 " open directory of current file
 map <Leader>. :execute("sp " . expand("%:p:h"))<CR>
-map <Leader>> :execute("vsp " . expand("%:p:h"))<CR>
+map <Leader>> :execute("e " . expand("%:p:h"))<CR>
 
 " create new file in directory of current file
 map <Leader>n :execute("sp " . expand("%:p:h") . "/" . input("New file name:"))<CR>
@@ -100,3 +100,7 @@ let g:tmux_pane = 1
 map <Leader>I :call SendSelectionToTmuxPane()<CR>
 
 map <Leader>\| :vs<CR>
+map <Leader>H :set hlsearch<CR>
+map <Leader>h :set nohlsearch<CR>
+
+map <Leader>g :Gstatus<CR>
