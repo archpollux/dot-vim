@@ -1,7 +1,29 @@
-syntax on
+set shell=bash
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+
+Bundle 'wincent/Command-T'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'tpope/vim-fugitive'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'wavded/vim-stylus'
+Bundle 'airblade/vim-gitgutter'
+"Bundle "dag/vim-fish"
+Bundle "nono/vim-handlebars"
+
+
 filetype plugin indent on
 
-execute pathogen#infect()
+syntax on
+"execute pathogen#infect()
 
 colors evening
 set background=dark
@@ -13,12 +35,15 @@ set nobk
 set showtabline=2
 set number
 
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]\ %{fugitive#statusline()}
+"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]\ %{fugitive#statusline()}
+set statusline=%t%m%r%h%w\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ %{fugitive#statusline()}
 set laststatus=2
 
 "au BufEnter * execute ":lcd " . expand("%:p:h")
 
 let g:CommandTMaxHeight=20
+let g:CommandTMaxCachedDirectories=0
+let g:CommandTMaxDepth=100
 let g:Grep_Find_Use_Xargs=0
 
 au BufEnter *.pl,*.pm,*.t,*.rb,*.haml,*.sass set expandtab tabstop=2 shiftwidth=2 autoindent smartindent nocindent
