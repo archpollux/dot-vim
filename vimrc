@@ -18,12 +18,11 @@ Bundle 'wavded/vim-stylus'
 Bundle 'airblade/vim-gitgutter'
 "Bundle "dag/vim-fish"
 Bundle "nono/vim-handlebars"
-
+Bundle "derekwyatt/vim-scala"
 
 filetype plugin indent on
 
 syntax on
-"execute pathogen#infect()
 
 colors evening
 set background=dark
