@@ -10,7 +10,7 @@ Bundle 'gmarik/vundle'
 
 Bundle 'wincent/Command-T'
 Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
+"Bundle 'scrooloose/syntastic'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-fugitive'
 Bundle 'digitaltoad/vim-jade'
@@ -19,6 +19,7 @@ Bundle 'airblade/vim-gitgutter'
 "Bundle "dag/vim-fish"
 Bundle "nono/vim-handlebars"
 Bundle "derekwyatt/vim-scala"
+Bundle "lmeijvogel/vim-yaml-helper"
 
 filetype plugin indent on
 
@@ -35,7 +36,7 @@ set showtabline=2
 set number
 
 "set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]\ %{fugitive#statusline()}
-set statusline=%t%m%r%h%w\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ %{fugitive#statusline()}
+set statusline=%t%m%r%h%w\ [%Y]\ [%04l,%04v][%p%%]\ %{fugitive#statusline()}
 set laststatus=2
 
 "au BufEnter * execute ":lcd " . expand("%:p:h")
@@ -57,11 +58,14 @@ function SwitchToTabN()
   endif
 
   if s:tab_nr == 'n'
-          execute( "tabnext" )
+    exe "tabnext"
   elseif s:tab_nr == 'p'
-          exe "tabprevious"
-  else
+    exe "tabprevious"
+  elseif s:tab_nr == 't'
           exe "tabfirst"
+          exe "tabp"
+          exe "tabe"
+  else
           exe "tabn " . s:tab_nr
   endif
 endfunction
@@ -103,7 +107,7 @@ function SendSelectionToTmuxPane() range
   call SendToTmuxPane(s:lines, g:tmux_pane)
 endfunction
 
-map ` :call SwitchToTabN()<CR>
+map <Leader>` :call SwitchToTabN()<CR>
 
 " open directory of current file
 map <Leader>. :execute("sp " . expand("%:p:h"))<CR>
@@ -124,7 +128,64 @@ let g:tmux_pane = 1
 map <Leader>I :call SendSelectionToTmuxPane()<CR>
 
 map <Leader>\| :vs<CR>
+map <Leader>- :sp<CR>
 map <Leader>H :set hlsearch<CR>
 map <Leader>h :set nohlsearch<CR>
 
 map <Leader>g :Gstatus<CR>
+
+map <Leader>1 ^
+map <Leader>2 $
+
+set hls
+set nobackup noswapfile
+set virtualedit=block
+set wildmode=longest,list
+
+nnoremap Q <nop>
+nnoremap n nzz
+
+function MyTabLine()
+  let s = ''
+  for i in range(tabpagenr('$'))
+    " select the highlighting
+    if i + 1 == tabpagenr()
+      let s .= '%#TabLineSel#'
+    else
+      let s .= '%#TabLine#'
+    endif
+
+    " set the tab page number (for mouse clicks)
+    let s .= '%' . (i + 1) . 'T'
+
+    " the label is made by MyTabLabel()
+    let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
+  endfor
+
+  " after the last tab fill with TabLineFill and reset tab page nr
+  let s .= '%#TabLineFill#%T'
+
+  " right-align the label to close the current tab page
+  if tabpagenr('$') > 1
+    let s .= '%=%#TabLine#%999Xclose'
+  endif
+
+  return s
+endfunction
+
+function MyTabLabel(n)
+  let buflist = tabpagebuflist(a:n)
+  let winnr = tabpagewinnr(a:n)
+  return fnamemodify(bufname(buflist[winnr - 1]), ':t')
+endfunction
+
+
+set tabline=%!MyTabLine()
+hi TabLineSel term=reverse cterm=reverse
+hi TabLineFill term=bold cterm=bold
+
+"set cursorline cursorcolumn
+hi CursorLine cterm=reverse
+hi CursorColumn cterm=reverse
+
+set mouse=a
