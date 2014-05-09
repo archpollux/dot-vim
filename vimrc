@@ -9,7 +9,8 @@ Plugin 'gmarik/vundle'
 
 
 "Plugin 'wincent/Command-T'
-Plugin 'kien/ctrlp.vim'
+"Plugin 'kien/ctrlp.vim'
+Plugin 'Shougo/unite.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'Lokaltog/vim-easymotion'
@@ -80,3 +81,5 @@ hi CursorLine cterm=reverse
 hi CursorColumn cterm=reverse
 
 set mouse=a
+
+map <Leader>t :Unite file<CR>
