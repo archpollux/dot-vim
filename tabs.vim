@@ -52,7 +52,7 @@ function MyTabLabel(n)
   return fnamemodify(bufname(buflist[winnr - 1]), ':t')
 endfunction
 
-map <Leader>` :call SwitchToTabN()<CR>
+nnoremap <Leader>` :call SwitchToTabN()<CR>
 
 "set tabline=%!MyTabLine()
 "hi TabLineSel term=reverse cterm=reverse

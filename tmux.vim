@@ -30,7 +30,7 @@ function SendSelectionToTmuxPane() range
 endfunction
 
 " split tmux window and open shell in directory of current file
-map <Leader>S :call OpenShell()<CR>
+nnoremap <Leader>S :call OpenShell()<CR>
 
 let g:tmux_pane = 1
-map <Leader>I :call SendSelectionToTmuxPane()<CR>
+nnoremap <Leader>I :call SendSelectionToTmuxPane()<CR>

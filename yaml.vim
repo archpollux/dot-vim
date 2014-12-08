@@ -4,3 +4,4 @@ function GotoYamlKey()
 endfunction
 
 :map <Leader>y :call GotoYamlKey()<CR>
+:map <Leader>Y :YamlGetFullPath<CR>
