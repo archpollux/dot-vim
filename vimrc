@@ -2,13 +2,11 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+let s:vimdir = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+exec 'set rtp+=' . s:vimdir . '/bundle/Vundle.vim'
 
-Plugin 'gmarik/vundle'
-
-
-"Plugin 'wincent/Command-T'
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Shougo/vimproc'
 Plugin 'Shougo/unite.vim'
@@ -18,19 +16,23 @@ Plugin 'scrooloose/syntastic'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-dispatch'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'wavded/vim-stylus'
-"Plugin 'airblade/vim-gitgutter'
 Plugin 'nono/vim-handlebars'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'lmeijvogel/vim-yaml-helper'
-Plugin 'epage/vim-autohighlight'
+"Plugin 'epage/vim-autohighlight'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'sjl/splice.vim'
 Plugin 'kmnk/vim-unite-giti'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'HerringtonDarkholme/yats.vim'
+call vundle#end()
 
 filetype plugin indent on
 
