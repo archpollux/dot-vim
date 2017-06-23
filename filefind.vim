@@ -6,5 +6,5 @@ let g:Grep_Find_Use_Xargs=0
 let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v([\/]\.(git|hg|svn))|node_modules|build|production$',
+  \ 'dir':  '\v([\/]\.(git|hg|svn))|node_modules|jspm_packages|build|production$',
   \ }

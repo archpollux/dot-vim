@@ -64,10 +64,6 @@ function ChangeDirToCurrBuffer()
   au BufEnter * execute ":lcd " . expand("%:p:h")
 endfunction
 
-au BufEnter *.pl,*.pm,*.t,*.rb,*.haml,*.sass set expandtab tabstop=2 shiftwidth=2 autoindent smartindent nocindent
-au BufEnter *.js,*.json set ft=javascript expandtab tabstop=2 shiftwidth=2 autoindent smartindent nocindent
-au BufEnter *.html.ep set ft=html expandtab tabstop=2 shiftwidth=2 autoindent smartindent nocindent
-
 let maplocalleader = "-"
 
 map <Leader>\| :vs<CR>
