@@ -6,8 +6,8 @@ function CopyAndEdit(cmd)
 endfunction
 
 " open directory of current file
-nnoremap <Leader>. :execute("sp " . expand("%:p:h"))<CR>
-nnoremap <Leader>> :execute("e " . expand("%:p:h"))<CR>
+nnoremap <Leader>> :execute("sp " . expand("%:p:h"))<CR>
+nnoremap <Leader>. :execute("e " . expand("%:p:h"))<CR>
 
 " create new file in directory of current file
 nnoremap <Leader>n :execute("sp " . expand("%:p:h") . "/" . input("New file name:"))<CR>

@@ -32,6 +32,8 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'HerringtonDarkholme/yats.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'cakebaker/scss-syntax.vim'
 call vundle#end()
 
 filetype plugin indent on
@@ -41,7 +43,6 @@ syntax on
 colors koehler
 set background=dark
 set showmatch
-set nohlsearch
 set noignorecase
 set wrap
 set nobk
@@ -68,8 +69,7 @@ let maplocalleader = "-"
 
 map <Leader>\| :vs<CR>
 map <Leader>- :sp<CR>
-map <Leader>H :set hlsearch<CR>
-map <Leader>h :set nohlsearch<CR>
+map <Leader>h :let @/=""<CR>
 
 map <Leader>1 ^
 map <Leader>2 $
@@ -108,3 +108,11 @@ nnoremap @st :tabe<CR>
 nnoremap @sw :tabclose<CR>
 
 nnoremap  :set paste!<CR>
+nnoremap <F2> :w<CR>
+
+"let g:user_emmet_leader_key='<Tab>'
+let g:user_emmet_settings = {
+  \  'javascript.jsx' : {
+    \      'extends' : 'jsx',
+    \  },
+  \}
