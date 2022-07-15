@@ -1,45 +1,8 @@
 "set shell=bash
-set nocompatible
-filetype off
 
-let s:vimdir = fnamemodify(resolve(expand('<sfile>:p')), ':h')
-exec 'set rtp+=' . s:vimdir . '/bundle/Vundle.vim'
-
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'Shougo/vimproc'
-Plugin 'Shougo/unite.vim'
-Plugin 'sgur/unite-git_grep'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-dispatch'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'wavded/vim-stylus'
-Plugin 'nono/vim-handlebars'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'lmeijvogel/vim-yaml-helper'
-"Plugin 'epage/vim-autohighlight'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'sjl/splice.vim'
-Plugin 'kmnk/vim-unite-giti'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'Quramy/tsuquyomi'
-Plugin 'HerringtonDarkholme/yats.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'cakebaker/scss-syntax.vim'
-call vundle#end()
-
-filetype plugin indent on
+source ~/.vim/plugins.vim
 
 syntax on
-
 colors koehler
 set background=dark
 set showmatch
@@ -94,19 +57,6 @@ nnoremap <Leader>r :UniteResume<CR>
 
 let g:syntastic_javascript_jshint_config=2
 
-nnoremap @s1 :tabn 1<CR>
-nnoremap @s2 :tabn 2<CR>
-nnoremap @s3 :tabn 3<CR>
-nnoremap @s4 :tabn 4<CR>
-nnoremap @s5 :tabn 5<CR>
-nnoremap @s6 :tabn 6<CR>
-nnoremap @s7 :tabn 7<CR>
-nnoremap @s8 :tabn 8<CR>
-nnoremap @s9 :tabn 9<CR>
-nnoremap @s0 :tabn 0<CR>
-nnoremap @st :tabe<CR>
-nnoremap @sw :tabclose<CR>
-
 nnoremap  :set paste!<CR>
 nnoremap <F2> :w<CR>
 
@@ -116,3 +66,5 @@ let g:user_emmet_settings = {
     \      'extends' : 'jsx',
     \  },
   \}
+
+let g:splice_initial_diff_grid = 1

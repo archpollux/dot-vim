@@ -57,3 +57,16 @@ nnoremap <Leader>` :call SwitchToTabN()<CR>
 "set tabline=%!MyTabLine()
 "hi TabLineSel term=reverse cterm=reverse
 "hi TabLineFill term=bold cterm=bold
+
+nnoremap @s1 :tabn 1<CR>
+nnoremap @s2 :tabn 2<CR>
+nnoremap @s3 :tabn 3<CR>
+nnoremap @s4 :tabn 4<CR>
+nnoremap @s5 :tabn 5<CR>
+nnoremap @s6 :tabn 6<CR>
+nnoremap @s7 :tabn 7<CR>
+nnoremap @s8 :tabn 8<CR>
+nnoremap @s9 :tabn 9<CR>
+nnoremap @s0 :tabn 0<CR>
+nnoremap @st :tabe<CR>
+nnoremap @sw :tabclose<CR>
